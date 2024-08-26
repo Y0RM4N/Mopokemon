@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wdth,wght@111.5,503&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Honk", system-ui;
     background-color: AF47D2;
@@ -31,8 +36,7 @@ body {
 
 
 
-.tarjeta-de-mokepon{
-    width: 100px;
+.tarjeta-de-mokepon {
     height: 100px;
     background: rgb(66, 18, 113);
     padding: 18px;
@@ -84,4 +88,15 @@ width: 161px;
     height: 30px;
     font-family: "Kalnia Glaze", serif;
     
+ }
+
+ #mensajes {
+    width: 200px;
+    background: #0b0c0d;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+ 
  }

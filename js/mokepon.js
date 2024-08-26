@@ -73,49 +73,57 @@ function ataqueAleatorioEnemigo() {
     combate()
 }
 
-function combate() {  
+function combate() {
     let spanVidasJugador = document.getElementById('vidas-jugador')
     let spanVidasEnemigo = document.getElementById('vidas-enemigo')
-
-
-    if(ataqueEnemigo==ataqueJugador) {
+    
+    if(ataqueEnemigo == ataqueJugador) {
         crearMensaje("EMPATE")
-    } else if(ataqueJugador=='FUEGO'&&ataqueEnemigo=='TIERRA') {
+    } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA') {
         crearMensaje("GANASTE")
         vidasEnemigo--
-          spanVidasEnemigo.innerHTML =  vidasEnemigo
-    } else if(ataqueJugador=='AGUA'&&ataqueEnemigo=='FUEGO') {
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO') {
         crearMensaje("GANASTE")
         vidasEnemigo--
-          spanVidasEnemigo.innerHTML =  vidasEnemigo
-    } else if(ataqueJugador=='TIERRA'&&ataqueEnemigo=='AGUA') {
-         crearMensaje("GANASTE")
-         vidasEnemigo--
-          spanVidasEnemigo.innerHTML =  vidasEnemigo
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA') {
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
     } else {
-          crearMensaje("PERDISTE")
-          vidasJugador--
-          spanVidasJugador.innerHTML =  vidasJugador
-      
-     }
+        crearMensaje("PERDISTE")
+        vidasJugador--
+        spanVidasJugador.innerHTML = vidasJugador
+    }
 
-     reservarVidas()
+    revisarVidas()
 
    }       
-   function reservarVidas(){
+   function revisarVidas(){
     if(vidasEnemigo == 0) {
         crearMensajeFinal("FELICITACIONES! GANASTE 😁")
     } else if(vidasJugador  == 0) {
         crearMensajeFinal('lo siento, perdiste 🥲☹️')
     }
    }   
- function crearMensaje(resultado) {
-    let sectionMensajes=document.getElementById('mensajes')
+   function crearMensaje(resultado) {
+    let sectionMensajes = document.getElementById('resultado');
+    let ataquesDelJugador = document.getElementById('ataques-del-jugador');
+    let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo');
+    
+    let nuevoMensaje = document.createElement('p');
+    nuevoMensaje.innerHTML = resultado;
+    sectionMensajes.appendChild(nuevoMensaje);
 
-    let parrafo=document.createElement('p')
-    parrafo.innerHTML='Tu mascota atacó con '+ataqueJugador+', las mascota del enemigo atacó con '+ataqueEnemigo+'- '+resultado
+    let nuevoAtaqueDelJugador = document.createElement('p');
+    let nuevoAtaqueDelEnemigo = document.createElement('p');
 
-sectionMensajes.appendChild(parrafo)
+    nuevoAtaqueDelJugador.innerHTML = `Jugador: ${ataqueJugador}`;
+    nuevoAtaqueDelEnemigo.innerHTML = `Enemigo: ${ataqueEnemigo}`;
+
+    ataquesDelJugador.appendChild(nuevoAtaqueDelJugador);
+    ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo);
 }
 
 function crearMensajeFinal(resultadoFinal) {
