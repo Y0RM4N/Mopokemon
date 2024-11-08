@@ -9,9 +9,7 @@ const botonReiniciar = document.getElementById('boton-reiniciar')
 
 
 const sectionSeleccionarMascota = document.getElementById('seleccionar-mascota')
-const inputHipodoge=document.getElementById('hipodoge')
-const inputCapipepo=document.getElementById('capipepo')
-const inputRatigueya=document.getElementById('ratigueya')
+
 const spanMascotaJugador=document.getElementById('mascota-jugador')
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
@@ -22,11 +20,15 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado');
 const ataquesDelJugador = document.getElementById('ataques-del-jugador');
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo');
-
+const contenedorTarjetas = document.getElementById('contenedorTarjetas')
     
 let Mokepones =  []
 let ataqueJugador
 let ataqueEnemigo
+let opcionDeMokepones
+let inputHipodoge
+let inputCapipepo
+let inputRatigueya
 let vidasJugador = 3
 let vidasEnemigo =3
 
@@ -73,9 +75,29 @@ ratigueya.ataques.push(
 
 )
 
+Mokepones.push(hipodoge,capipepo,ratigueya )
+
 function iniciarJuego(){
     
 sectionSeleccionarAtaque.style.display = 'none'
+
+Mokepones.forEach((mokepon) => {
+     opcionDeMokepones  =  `
+     <input type="radio" name="mascota" id= ${mokepon.nombre} />
+     <label class= "tarjeta-de-mokepon"  for=${mokepon.nombre}>
+
+         <P>${mokepon.nombre}</P>
+         <img src=${mokepon.foto} alt=${mokepon.nombre}> 
+
+     </label>
+    `
+    contenedorTarjetas.innerHTML +=opcionDeMokepones
+
+    let inputHipodoge=document.getElementById('Hipodoge')
+    let inputCapipepo=document.getElementById('Capipepo')
+    let inputRatigueya=document.getElementById('Ratigueya')
+
+})
     
     botonMascotaJugador.addEventListener('click',seleccionarMascotaJugador)
 
@@ -97,7 +119,7 @@ sectionSeleccionarMascota.style.display = 'none'
     
 sectionSeleccionarAtaque.style.display = 'flex'
 
-  console.log (inputHipodoge.checked)
+  
 
     if(inputHipodoge.checked) {
         spanMascotaJugador.innerHTML='Hipodoge'
