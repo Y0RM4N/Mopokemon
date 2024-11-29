@@ -42,7 +42,7 @@ constructor(nombre, foto, vida) {
 }
 }
 
-let hipodoge = new Mokepon('Hipodoge', './assets/hipodoge 111.png', 5)
+let hipodoge = new Mokepon('Hipodoge', './assets/hipodoge111.png', 5)
 
 let capipepo = new Mokepon('Capipepo','./assets/capipepo444.png',5)
 
@@ -74,6 +74,9 @@ ratigueya.ataques.push(
     { nombre: '🌱', id : 'boton-tierra' },
 
 )
+// "este 'texto' esta citado"
+// let avance ='este "texto" esta citado'
+// `este "'texto'" esta citado ${avance}` 
 
 Mokepones.push(hipodoge,capipepo,ratigueya )
 
@@ -93,9 +96,9 @@ Mokepones.forEach((mokepon) => {
     `
     contenedorTarjetas.innerHTML +=opcionDeMokepones
 
-    let inputHipodoge=document.getElementById('Hipodoge')
-    let inputCapipepo=document.getElementById('Capipepo')
-    let inputRatigueya=document.getElementById('Ratigueya')
+     inputHipodoge=document.getElementById('Hipodoge')
+     inputCapipepo=document.getElementById('Capipepo')
+     inputRatigueya=document.getElementById('Ratigueya')
 
 })
     
